@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 /**
  * Created by rezau on 2016-08-27.
  */
-public class Questions {
+public class Question {
 
     @SerializedName("qa_category")
     private String questionCategory;
@@ -19,7 +19,7 @@ public class Questions {
     @SerializedName("qa_title")
     private String questionTitle;
 
-    public Questions(String questionCategory, String questionCreated, String questionId, String questionTitle) {
+    public Question(String questionCategory, String questionCreated, String questionId, String questionTitle) {
         this.questionCategory = questionCategory;
         this.questionCreated = questionCreated;
         this.questionId = questionId;

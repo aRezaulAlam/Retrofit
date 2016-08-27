@@ -9,20 +9,17 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.agroho.retrofitapp.R;
-import com.agroho.retrofitapp.model.QuestionList;
-import com.agroho.retrofitapp.model.Questions;
+import com.agroho.retrofitapp.model.Question;
 
 import java.util.List;
-
-import retrofit2.Callback;
 
 public class CustomList extends BaseAdapter {
 
     Context context;
-    List<Questions> questionlist;
+    List<Question> questionlist;
     LayoutInflater inflater;
 
-    public CustomList(Context context, List<Questions> questionlist){
+    public CustomList(Context context, List<Question> questionlist){
 
         this.context = context;
         this.questionlist = questionlist;
@@ -59,7 +56,7 @@ public class CustomList extends BaseAdapter {
             holder = (ViewHolder)convertView.getTag();
         }
 
-        Questions question = questionlist.get(i);
+        Question question = questionlist.get(i);
         holder.questionTitleTextView.setText(question.getQuestionTitle());
         holder.questionCategoryTextView.setText(question.getQuestionCategory());
 

@@ -2,16 +2,15 @@ package com.agroho.retrofitapp.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.ListViewCompat;
 import android.util.Log;
 import android.widget.ListView;
 
 import com.agroho.retrofitapp.R;
 import com.agroho.retrofitapp.adapter.CustomList;
 import com.agroho.retrofitapp.model.QuestionList;
-import com.agroho.retrofitapp.model.Questions;
-import com.agroho.retrofitapp.rest.ApiClient;
-import com.agroho.retrofitapp.rest.ApiInterface;
+import com.agroho.retrofitapp.model.Question;
+import com.agroho.retrofitapp.rest.QuestionCall;
+import com.agroho.retrofitapp.rest.QuestionInterface;
 
 import java.util.List;
 
@@ -22,7 +21,7 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
 
     CustomList questionAdapter;
-    List<Questions> questions;
+    List<Question> questions;
     ListView questionListView;
 
     @Override
@@ -34,8 +33,8 @@ public class MainActivity extends AppCompatActivity {
 
         Log.d("Check","Online");
 
-        ApiInterface apiService =
-                ApiClient.getClient().create(ApiInterface.class);
+        QuestionInterface apiService =
+                QuestionCall.getClient().create(QuestionInterface.class);
 
         Call<QuestionList> call = apiService.getQuestion();
         call.enqueue(new Callback<QuestionList>() {
@@ -45,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
                 questionAdapter = new CustomList(MainActivity.this,questions);
                 questionListView.setAdapter(questionAdapter);
 
-                Log.d("Question List", "Number of movies received: " + questions.size());
+                Log.d("Question List", "Number of question received: " + questions.size());
             }
 
             @Override

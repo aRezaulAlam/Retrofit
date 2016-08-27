@@ -10,13 +10,13 @@ import java.util.List;
 public class QuestionList {
 
     @SerializedName("discussed")
-    private List<Questions> questionslist;
+    private List<Question> questionslist;
 
-    public List<Questions> getQuestionslist() {
+    public List<Question> getQuestionslist() {
         return questionslist;
     }
 
-    public void setQuestionslist(List<Questions> questionslist) {
+    public void setQuestionslist(List<Question> questionslist) {
         this.questionslist = questionslist;
     }
 }
